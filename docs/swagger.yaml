@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: AI Image Generation
+  description: >-
+    This API simplifie SubNP image generation API. You can use it without being
+    worry of SSE stream handling.
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://127.0.0.1:1234
+paths:
+  /api/image:
+    get:
+      summary: Get Models
+      description: >-
+        **Get all available models**
+
+
+        This request fetches all available image generation models. Response
+        includes models with their providers.
+      operationId: getModels
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Generate Image
+      description: >-
+        **Generate image**
+
+
+        This request will send a prompt for image generation. Response includes
+        the image URL.
+
+
+        Request body:
+
+
+        - prompt (required): Explanation about your desired image.
+            
+        - model: The model to be used with image creation. The default is
+        'flux-schnell'.
+      operationId: generateImage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  example: flux-schnell
+                prompt:
+                  type: string
+                  example: >-
+                    Generate a realistic image of a man driving a 1969 Pontiac
+                    GTO.
+            examples:
+              Generate Image:
+                value:
+                  model: flux-schnell
+                  prompt: >-
+                    Generate a realistic image of a man driving a 1969 Pontiac
+                    GTO.
+      responses:
+        '200':
+          description: ''
+tags: []
