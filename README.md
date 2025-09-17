@@ -8,6 +8,7 @@ A simple REST API consuming SubNP.com to generate images in a more simple way wi
 ## Setup and Installation
 
 No need to create envs, since it's already provided in the repository and no API key is needed. Just clone and do a little setup to use.
+You can head to /docs endpoint to see a Swagger documentation.
 
 ```
 # Clone the repository
